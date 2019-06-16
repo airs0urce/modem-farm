@@ -1,0 +1,24 @@
+{
+  "name": "modem-farm",
+  "version": "1.0.0",
+  "description": "Setup your own 3G/LTE proxy farm on Linux",
+  "main": "setup-farm.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "3g",
+    "lte",
+    "modem",
+    "farm",
+    "proxy",
+    "mobile",
+    "sim",
+    "card"
+  ],
+  "author": "Dmitry Eroshenko",
+  "license": "ISC",
+  "dependencies": {
+    "lodash": "^4.17.11"
+  }
+}
