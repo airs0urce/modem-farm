@@ -19,6 +19,10 @@
   "author": "Dmitry Eroshenko",
   "license": "ISC",
   "dependencies": {
-    "lodash": "^4.17.11"
+    "command-exists": "^1.2.8",
+    "koa": "^2.7.0",
+    "koa-router": "^7.4.0",
+    "lodash": "^4.17.11",
+    "minimist": "^1.2.0"
   }
 }

@@ -1,0 +1,33 @@
+sudo ip netns add MODEM_1
+sudo ip netns exec MODEM_1 ifconfig lo up
+sudo ip link set dev eth1 netns MODEM_1
+sudo ip netns exec MODEM_1 ip link set eth1 up
+sudo ip netns exec MODEM_1 dhclient
+
+
+
+.spawn(      sudo ip netns exec MODEM_1 3proxy /home/pi/modem-farm/files/3proxy_config_tpl
+.spawn(      sudo socat tcp-listen:8080,fork,reuseaddr exec:'ip netns exec MODEM_1 socat STDIO tcp-connect\:127.0.0.1\:8080',nofork
+
+
+
+
+-----------------
+sudo ip netns exec MODEM_1 curl -x socks5://127.0.0.1:8080 http://example.com/
+
+
+
+
+ls -la /sys/class/net
+
+
+
+
+1-1.4.1/1-1.4.1:1.0/net/eth1
+1-1.4.2/1-1.4.2:1.0/net/eth2
+1-1.4.3/1-1.4.3:1.0/net/eth3
+1-1.4.4/1-1.4.4.1/1-1.4.4.1:1.0/net/eth4
+1-1.4.4/1-1.4.4.2/1-1.4.4.2:1.0/net/eth5
+
+
+$ usb-devices
