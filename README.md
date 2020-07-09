@@ -1,12 +1,15 @@
+Modems farm. Make it possible to get many IP addresses from 3G/LTE providers to prevent blocking while scrapping data or doing any other activity which requires changing of your IP address.
+
 Note:
 I don't plan to prepare full docs for this project as it was written for myself and actually I don't want spending time preparing instructions and making it ready for everybody. Also I can't garanty that it still works, as I was running it last time one year ago and just now decided to put it on github to make sure I don't lose this code in future. If something doesn't work or work not how it was described in this doc - you have to read code yourself and check it as I wrote this Readme based on what I remember after one year passed.
 
 
 How it works:
 
-You connect many LTE modems to Raspberry PI using USB hub with external power (because RPI will not give you enough current to power many modems).
+Note: it works only on linux.
+You connect many LTE modems to computer (I used Raspberry PI with Raspbian OS, didn't test other linuxes) using USB hub with external power (because RPI will not give you enough current to power many modems).
 I added support of Huawei E3372h and ZTE (don't remember the model now) LTE modems because those are modems I planned to use.
-Then you install Raspbian OS (now it's called "Raspberry Pi OS", but I didn't test my project on it) and run:
+Run:
 
 ```
 $ node bin/start_farm
