@@ -30,11 +30,15 @@ module.exports = {
     interfaces: ['lo', 'eth0', 'wlan0'], // list of interfaces to include or exclude'
   },
   
-  http_api_port: 8080, // Port of HTTP API that you can use to manage farm
+  http_api_port: 80, // Port of HTTP API that you can use to manage farm
   socks_proxies: {
-    bind_ip: '127.0.0.1', // IP address where socks proxies will be available. Use 0.0.0.0 to make it available on all interfaces
-    start_port: 1080 // As we start one proxy server per network namespace (3g modem), we will start each proxy on different port. 
+    start_port: 1100 // As we start one proxy server per network namespace (3g modem), we will start each proxy on different port. 
                      // This is initial port, then we increment it.
-  }
+  },
+  ip_address_api: {
+    primary: 'http://ifconfig.co/ip', // this url will be used to get plain text with external IP address
+    secondary: 'http://ipecho.net/plain', // this url will be used if primary address failed
+    // https://ip.seeip.org/
+  } 
 
 }

@@ -19,10 +19,14 @@
   "author": "Dmitry Eroshenko",
   "license": "ISC",
   "dependencies": {
+    "awaiting": "^3.0.0",
     "command-exists": "^1.2.8",
+    "is-ip": "^3.1.0",
     "koa": "^2.7.0",
     "koa-router": "^7.4.0",
     "lodash": "^4.17.11",
-    "minimist": "^1.2.0"
+    "minimist": "^1.2.0",
+    "mz": "^2.7.0",
+    "ping": "^0.2.2"
   }
 }

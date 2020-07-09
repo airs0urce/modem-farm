@@ -1,33 +1,56 @@
-sudo ip netns add MODEM_1
-sudo ip netns exec MODEM_1 ifconfig lo up
-sudo ip link set dev eth1 netns MODEM_1
-sudo ip netns exec MODEM_1 ip link set eth1 up
-sudo ip netns exec MODEM_1 dhclient
+
+To get random MAc addresses for HUawei modems:
+================================================
+
+/etc/systemd/network/01-huawei-e3372h.link
+
+[Match]
+MACAddress=0c:5b:8f:27:9a:64
+Driver=cdc_ether
+
+[Link]
+Description=Huawei E3372h-607 in HiLink mode
+NamePolicy=path
+MACAddressPolicy=random
 
 
 
-.spawn(      sudo ip netns exec MODEM_1 3proxy /home/pi/modem-farm/files/3proxy_config_tpl
-.spawn(      sudo socat tcp-listen:8080,fork,reuseaddr exec:'ip netns exec MODEM_1 socat STDIO tcp-connect\:127.0.0.1\:8080',nofork
 
 
 
 
------------------
+
+
+
+
+======================================================
+
+
+
+ZTE возвращает во время реконнекта:
+
+1
+<html><head><title>Document Error: Site or Page Not Found</title></head>
+    <body><h2>Access Error: Site or Page Not Found</h2>
+    <p>Cannot open URL</p></body></html>
+
+2
+curl: (7) Can't complete SOCKS4 connection to 0.0.0.0:0. (91), request rejected or failed
+
+
+А иногда и такое:
+curl: (7) Failed to receive SOCKS4 connect request ack.
+
+
+
+=================
+
 sudo ip netns exec MODEM_1 curl -x socks5://127.0.0.1:8080 http://example.com/
 
 
 
 
 ls -la /sys/class/net
-
-
-
-
-1-1.4.1/1-1.4.1:1.0/net/eth1
-1-1.4.2/1-1.4.2:1.0/net/eth2
-1-1.4.3/1-1.4.3:1.0/net/eth3
-1-1.4.4/1-1.4.4.1/1-1.4.4.1:1.0/net/eth4
-1-1.4.4/1-1.4.4.2/1-1.4.4.2:1.0/net/eth5
 
 
 $ usb-devices

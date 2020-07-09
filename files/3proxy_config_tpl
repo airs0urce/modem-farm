@@ -1,5 +1,3 @@
-#daemon
-
 internal 0.0.0.0
 external 0.0.0.0
 
@@ -11,9 +9,8 @@ timeouts 1 5 30 60 180 1800 15 60
 
 flush
 auth none
-maxconn 400
+maxconn 100
 
 allow *
 
-socks -p8080
-
+socks -p{SOCKS_PORT}

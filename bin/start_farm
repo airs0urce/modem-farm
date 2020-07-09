@@ -1,0 +1,40 @@
+#!/usr/bin/env node
+
+const Modems = require('../src/Modems')
+  , httpAPI = require('../src/httpAPI')
+;
+
+let httpServer;
+
+(async function() {
+  await Modems.modemProxiesUp();
+  let proxies = Modems.getProxies();
+  httpServer = httpAPI(Modems);
+})();
+
+
+let shuttingDown = false;
+async function gracefulShutdown() {
+  if (shuttingDown) {
+    return;
+  }
+  console.log('shutting down');
+  shuttingDown = true;
+  await Modems.modemProxiesDown();
+
+  process.exit();
+}
+process.on('exit', gracefulShutdown);
+process.on('SIGINT', gracefulShutdown);
+process.on('SIGTERM', gracefulShutdown);
+process.on('SIGUSR1', gracefulShutdown);
+process.on('SIGUSR2', gracefulShutdown);
+process.on('uncaughtException', gracefulShutdown);
+
+
+
+
+
+
+
+
