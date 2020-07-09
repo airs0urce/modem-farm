@@ -1,41 +1,63 @@
+Note:
+I don't plan to prepare full docs for this project as it was written for myself and actually I don't want spending time preparing instructions and making it ready for everybody. Also I can't garanty that it still works, as I was running it last time 7 months ago and just now decided to put it on github.
 
-POST /init_modems
-  {
-    success: true,  
-  }
 
-GET /info
+
+How it works:
+
+You connect many LTE modems to Raspberry PI using USB hub with external power (because RPI will not give you enough current to power many modems).
+I added support of Huawei E3372h and ZTE (don't remember the model now) LTE modems because those are modems I planned to use.
+Then you install Raspbian OS (now it's called "Raspberry Pi OS", but I didn't test my project on it) and run:
+
+```
+$ node bin/start_farm
+```
+
+After http API started you will see message in terminal:
+```
+HTTP API started. Available on http port: 80
+```
+
+
+Request/response examples:
+```
+API available on port 80 by default, you can make requests to you RPI:
+
+Get list of modems:
+
+GET /
   {
-    success: true,
-    modems: {
       MODEM_1:{
-        modem_mac: 'ac:de:48:00:11:22',
-        external_ip: '103.7.39.62',
-        socks_proxy_port: 1080,
+        modem_id: 'MODEM_1',
+        status: 'connected',
+        interface: '<network_interface>',
+        detectedExternalIp: '103.7.39.62',
+        socks_proxy_port: 1100,
       },
       MODEM_2: {
-        modem_mac: 'ee:ef:48:00:11:33',
-        external_ip: '171.255.138.131',
-        socks_proxy_port: 1081,
+        modem_id: 'MODEM_2',
+        status: 'connecting...',
+        interface: '<network_interface>',
+        detectedExternalIp: '',
+        socks_proxy_port: 1101,
       },
-      MODEM_3: {
-        modem_mac: 'сс:de:48:00:11:32',
-        external_ip: '171.255.146.23',
-        socks_proxy_port: 1082,
-      }
-    },
   }
 
+To connect via certain modem use socks server on port from: "socks_proxy_port"
+If you need new IP address - reconnect modem:
 
-POST /new_ip/MODEM_1
+POST /reconnect/MODEM_1
+  success response:
   {
     success: true,
     old_ip: '171.255.143.78',
     new_ip: '171.255.146.23',
   }
+  
+  error response:
   {
     success: false,
     error: 'Error message'
   }
 
-
+```
