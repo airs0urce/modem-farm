@@ -45,7 +45,8 @@ GET /
       },
   }
 
-To connect via certain modem use socks server on port from: "socks_proxy_port"
+To connect via certain modem use socks server on port from: "socks_proxy_port".
+For example, I used docks servers with Pupeteer.
 If you need new IP address - reconnect modem:
 
 POST /reconnect/MODEM_1
