@@ -1,7 +1,7 @@
 Modems farm. Make it possible to get many IP addresses from 3G/LTE providers to prevent blocking while scrapping data or doing any other activity which requires changing of your IP address.
 
 Note:
-I don't plan to prepare full docs for this project as it was written for myself and actually I don't want spending time preparing instructions and making it ready for everybody. Also I can't garanty that it still works, as I was running it last time one year ago and just now decided to put it on github to make sure I don't lose this code in future. If something doesn't work or work not how it was described in this doc - you have to read code yourself and check it as I wrote this Readme based on what I remember after one year passed.
+I don't plan to prepare full docs for this project as it was written for myself and actually I don't want spending time preparing instructions and making it ready for everybody. Also I can't garanty that it still works, as I was running it last time one year ago and just now decided to put it on github to make sure I don't lose this code in future. If something doesn't work or works not how it was described in this doc - you have to read code yourself and check it as I wrote this Readme based on what I remember after one year passed.
 
 
 How it works:
