@@ -17,7 +17,7 @@ After http API started you will see message in terminal:
 HTTP API started. Available on http port: 80
 ```
 
-
+The API will give you list of socks proxies that you can use to make requests from certain modem and also ability to reconnect modem to get new IP address.
 Request/response examples:
 ```
 API available on port 80 by default, you can make requests to you RPI:
