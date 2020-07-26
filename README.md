@@ -9,6 +9,9 @@ How it works:
 Note: it works only on linux.
 You connect many LTE modems to computer (I used Raspberry PI with Raspbian OS, didn't test other linuxes) using USB hub with external power (because RPI will not give you enough current to power many modems).
 I added support of Huawei E3372h and ZTE (don't remember the model now) LTE modems because those are modems I planned to use.
+
+Also check out config.js, you can set interfaces of LTE modems, http port for API, ports for socks proxy and service to use to check if modem is online after reconnection.
+
 Run:
 
 ```
